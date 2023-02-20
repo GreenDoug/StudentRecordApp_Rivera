@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -15,6 +16,7 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends AppCompatActivity {
 
     EditText id, name, course, address, contact;
+    TextView output;
     static final int READ_BLOCK_SIZE = 100;
 
     @Override
@@ -27,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
         course = findViewById(R.id.CourseSection);
         address = findViewById(R.id.Address);
         contact = findViewById(R.id.cNumber);
+        output = findViewById(R.id.output);
     }
 
     public void save(View v) {
         try {
             FileOutputStream fileout = openFileOutput("mytextfile.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
-            outputWriter.write(id.getText().toString());
-            outputWriter.write(name.getText().toString());
-            outputWriter.write(course.getText().toString());
-            outputWriter.write(address.getText().toString());
-            outputWriter.write(contact.getText().toString());
+            outputWriter.write("Student ID: " + id.getText().toString());
+            outputWriter.write("Student Name: " + name.getText().toString());
+            outputWriter.write("Course and Section: " + course.getText().toString());
+            outputWriter.write("Residence Address: " + address.getText().toString());
+            outputWriter.write("Contact Number: " + contact.getText().toString());
             outputWriter.close();
 
             Toast.makeText(getBaseContext(), "File saved successfully",
@@ -50,11 +53,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void retrieve(View v){
         try{
+            String sID = id.getText().toString();
+            String sName = name.getText().toString();
+            String sCourseSection = course.getText().toString();
+            String sAddress = address.getText().toString();
+            String sContact = contact.getText().toString();
             FileInputStream fileIn = openFileInput("mytextfile.txt");
             InputStreamReader InputRead = new InputStreamReader(fileIn);
 
             char[] inputBuffer = new char[READ_BLOCK_SIZE];
-            String s = "";
+            String s = "I am " + sName + " with " + sID + " taken up " + sCourseSection + " with " + sAddress + ", for any question you may contact me at " + sContact;
             int charRead;
 
             while ((charRead = InputRead.read(inputBuffer))>0){
@@ -63,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
             InputRead.close();
             id.setText(s);
+
         }catch (Exception e){
             e.printStackTrace();
         }
