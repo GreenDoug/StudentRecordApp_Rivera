@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             FileOutputStream fileout = openFileOutput("mytextfile.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
-            outputWriter.write("Student ID: " + id.getText().toString());
-            outputWriter.write("Student Name: " + name.getText().toString());
-            outputWriter.write("Course and Section: " + course.getText().toString());
-            outputWriter.write("Residence Address: " + address.getText().toString());
+            outputWriter.write("Student ID: " + id.getText().toString() + "\n");
+            outputWriter.write("Student Name: " + name.getText().toString() + "\n");
+            outputWriter.write("Course and Section: " + course.getText().toString() + "\n");
+            outputWriter.write("Residence Address: " + address.getText().toString() + "\n");
             outputWriter.write("Contact Number: " + contact.getText().toString());
             outputWriter.close();
 
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             InputStreamReader InputRead = new InputStreamReader(fileIn);
 
             char[] inputBuffer = new char[READ_BLOCK_SIZE];
-            String s = "I am " + sName + " with " + sID + " taken up " + sCourseSection + " with " + sAddress + ", for any question you may contact me at " + sContact;
+            String s = "I am " + sName + " with " + sID + " taken up " + sCourseSection + " with " + sAddress + ", for any question you may contact me at " + sContact + "\n\n\n\n";
             int charRead;
 
             while ((charRead = InputRead.read(inputBuffer))>0){
@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 s += readstring;
             }
             InputRead.close();
-            id.setText(s);
+            output.setText(s);
 
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-    
+
     public void clear(View v){
         id = findViewById(R.id.sID);
         name = findViewById(R.id.sName);

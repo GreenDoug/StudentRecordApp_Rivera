@@ -17,7 +17,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:textAllCaps="false" />
 
     <EditText
         android:id="@+id/sID"
@@ -25,9 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Student ID"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Student ID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Student Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Student Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sID" />
@@ -52,9 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Course and Section"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Course and Section"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sName" />
@@ -65,9 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Residence Address"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Residence Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CourseSection" />
@@ -78,9 +79,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="Contact Number"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Contact Number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Address" />
@@ -103,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="retrieve"
-        android:text="Retrieve"
+        android:text="Display"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/save" />
@@ -121,12 +122,14 @@
 
     <TextView
         android:id="@+id/output"
-        android:layout_width="224dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="40dp"
-        android:textSize="12sp"
+        android:layout_width="245dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="24dp"
+        android:textSize="15sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cNumber" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
